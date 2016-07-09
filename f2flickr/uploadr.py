@@ -414,7 +414,7 @@ class Uploadr:
             logging.debug("Getting EXIF for %s", image)
             f = open(image, 'rb')
             try:
-                exiftags = exifread.process_file(f)
+                exiftags = exifread.process_file(f, truncate_tags=(configdict.get('truncate_tags', 'true')!='false'))
             except MemoryError:
                 exiftags = {}
             f.close()

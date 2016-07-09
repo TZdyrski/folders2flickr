@@ -47,6 +47,14 @@ full_folder_tags = false
 override_dates = 0
 
 #
+## set truncate_tags to false if you wish to override the original (default)
+## truncation of EXIF tag data. Originally, tags were truncated to 20 charaters,
+## but this can sometimes cause errors. Setting to false should fix this.
+## true (Default), tags are truncated
+## false, tags are not truncated
+truncate_tags = true
+
+#
 # Key and Hash codes. Use those established by the original folders2flicker author (default below)
 # or alternately request your own from Flickr.
 #
