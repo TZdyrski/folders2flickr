@@ -421,19 +421,19 @@ class Uploadr:
             #print exiftags[XPKEYWORDS]
             #print folderTag
             # make one tag equal to original file path with spaces replaced by
-            # # and start it with # (for easier recognition) since space is
+            # # and start it with # (for easier recognition) since comma is
             # used as TAG separator by flickr
 
             # this is needed for later syncing flickr with folders
             # look for / \ _ . and replace them with SPACE to make real Tags
-            realTags = re.sub(r'[/\\_.]', ' ',
+            realTags = re.sub(r'[/\\_.]', ',',
                           os.path.dirname(folderTag)).strip()
 
             if configdict.get('full_folder_tags', 'false').startswith('true'):
                 realTags = os.path.dirname(folderTag).split(os.sep)
-                realTags = (' '.join('"' + item + '"' for item in  realTags))
+                realTags = (','.join('"' + item + '"' for item in  realTags))
 
-            picTags = '"#' + folderTag + '" ' + realTags
+            picTags = '"#' + folderTag + '",' + realTags
 
             #check if we need to override photo dates
             if configdict.get('override_dates', '0') == '1':
